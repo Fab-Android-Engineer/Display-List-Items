@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="@string/sort_by"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showAsAction="ifRoom"
+        >
+    </item>
+
+    <item
+        android:id="@+id/list_id"
+        android:title="@string/listId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showAsAction="never"
+        >
+    </item>
+
+    <item
+        android:id="@+id/list_name"
+        android:title="@string/name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showAsAction="never"
+        >
+    </item>
+    <item
+        android:id="@+id/showListId"
+        android:title="@string/showListId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showAsAction="never"
+        >
+    </item>
+
+</menu>
+

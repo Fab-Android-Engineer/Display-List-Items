@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Display List</string>
+    <string name="listId">Sort List by Id</string>
+    <string name="name">Sort List by Name</string>
+    <string name="sort_by">Sort By</string>
+    <string name="showListId">Display All Id</string>
+    <string name="sorted_list_id">Sorted list by ID</string>
+    <string name="sorted_list_name">Sorted list by Name</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="list_id">List ID</string>
+</resources>
