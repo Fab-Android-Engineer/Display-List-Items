@@ -28,7 +28,6 @@ class ItemViewModel @Inject constructor(private val itemApiService: ItemApiServi
 
         getItemList()
     }
-
     /**
      * this gets the data information from the Api
      */
