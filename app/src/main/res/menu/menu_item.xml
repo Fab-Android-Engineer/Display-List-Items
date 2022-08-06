@@ -28,7 +28,7 @@
         >
     </item>
     <item
-        android:id="@+id/showListId"
+        android:id="@+id/show_all"
         android:title="@string/showListId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.displayitems.R
+import com.example.displayitems.repository.ItemRepository.getId.sortedListById
 import com.example.displayitems.viewmodel.ItemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,8 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SortedListIdFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-
-   private val itemViewModel : ItemViewModel by viewModels()
+    private val itemViewModel : ItemViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,10 +34,8 @@ class SortedListIdFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         itemViewModel.item.observe(viewLifecycleOwner) { list ->
-            val sortedList = list.sortedBy {
-                it.listId
-            }
-            recyclerView.adapter = ItemsAdapter(sortedList, false)
+             val sortedId = sortedListById(list)
+            recyclerView.adapter = ItemsAdapter(sortedId, false)
         }
         return view
 

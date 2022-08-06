@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.displayitems.R
+import com.example.displayitems.repository.ItemRepository.getName.sortedListByName
 import com.example.displayitems.viewmodel.ItemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,16 +38,8 @@ class SortedListNameFragment : Fragment() {
         recyclerView = view.findViewById(R.id.rv_recyclerview)
         viewLayoutManager = LinearLayoutManager(context)
         itemViewModel.item.observe(viewLifecycleOwner) { list ->
-            val filterList = list.filter {
-                !it.name.isNullOrEmpty()
-            }
-            filterList.map {
-                it.name = it.name?.substringAfter(" ")
-            }
-            val sortedList = filterList.sortedBy {
-                it.name?.toInt()
-            }
-            viewAdapter = ItemsAdapter(sortedList, true)
+            val sortedName = sortedListByName(list)
+            viewAdapter = ItemsAdapter(sortedName, true)
             recyclerView.apply {
                 layoutManager = viewLayoutManager
                 adapter = viewAdapter

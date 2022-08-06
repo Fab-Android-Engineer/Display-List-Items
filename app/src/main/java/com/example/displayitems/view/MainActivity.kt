@@ -27,9 +27,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        /**
+         * Handle action bar item clicks here.
+         * The action bar will automatically handle clicks on menu items,
+         */
         return when (item.itemId) {
             R.id.list_id -> {
                 replaceFragment(SortedListIdFragment())
@@ -39,8 +40,8 @@ class MainActivity : AppCompatActivity() {
                 replaceFragment(SortedListNameFragment())
                 true
             }
-            R.id.showListId -> {
-                replaceFragment(HomeFragment())
+            R.id.show_all -> {
+                replaceFragment(DisplayAllFragment())
                 true
             }
             else -> super.onOptionsItemSelected(item)
