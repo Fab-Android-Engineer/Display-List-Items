@@ -24,13 +24,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-
-        recyclerView = view.findViewById(R.id.rv_recyclerview)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        //viewLifecycleOwner getting the lifecycle of the activity
-        itemViewModel.item.observe(viewLifecycleOwner) {
-            recyclerView.adapter = ItemsAdapter(it, false)
-        }
         // Inflate the layout for this fragment
         return view
     }

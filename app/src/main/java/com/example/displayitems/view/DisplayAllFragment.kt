@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.displayitems.R
+import com.example.displayitems.repository.ItemRepository.getAllItem.sortAllItem
 import com.example.displayitems.viewmodel.ItemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,8 +28,9 @@ class DisplayAllFragment : Fragment() {
         recyclerView = view.findViewById(R.id.rv_recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(context)
         //viewLifecycleOwner getting the lifecycle of the activity
-        itemViewModel.item.observe(viewLifecycleOwner) {
-            recyclerView.adapter = DisplayAllAdapter(it)
+        itemViewModel.item.observe(viewLifecycleOwner) { list ->
+            val sortAll = sortAllItem(list)
+            recyclerView.adapter = DisplayAllAdapter(sortAll)
         }
         // Inflate the layout for this fragment
         return view

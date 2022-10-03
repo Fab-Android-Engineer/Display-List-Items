@@ -38,7 +38,6 @@ class ItemRepository @Inject constructor(private val itemApiService: ItemApiServ
             e.printStackTrace()
         }
     }
-
     /**
      * this sort the data by id
      */
@@ -53,17 +52,36 @@ class ItemRepository @Inject constructor(private val itemApiService: ItemApiServ
      * this sort the data by name
      */
     object getName {
-        fun sortedListByName(item: List<ItemModel>) : List<ItemModel>  {
-            val filterList = item.filter {
+        fun sortedListByName(item: List<ItemModel>) : List<ItemModel> {
+            val filterName = item.filter {
                 !it.name.isNullOrEmpty()
             }
-//            filterList.map {
-//                it.name = it.name?.substringAfter(" ")
-//            }
-            filterList.sortedBy {
-                it.name
+
+            return filterName.sortedBy {
+                it.name?.substringAfter(" ")?.toInt()
             }
-            return filterList
         }
+
+    }
+    /**
+     * this sort the data by name
+     */
+    object getAllItem {
+        fun sortAllItem(item: List<ItemModel>) : List<ItemModel> {
+
+            val sortAllItem = item.filter {
+                !it.name.isNullOrEmpty()
+            }
+
+            return sortAllItem.sortedWith(compareBy<ItemModel> {
+                it.listId
+            }.thenBy {
+                it.name?.substringAfter(" ")?.toInt()
+            })
+        }
+    }
+
+    private fun removeInt(name: String?) : Int? {
+        return name?.substringAfter(" ")?.toInt()
     }
 }
